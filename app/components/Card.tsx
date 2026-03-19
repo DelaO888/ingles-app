@@ -5,7 +5,7 @@ type CardProps = {
 
 export default function Card({cardTitle, cardBody} : CardProps){
     return(
-         <div className="bg-zinc-900 p-5 gap-2 w-100 h-50 flex justify-center items-center">
+         <div className="bg-zinc-900 p-5 gap-2 mt-3 md:w-100 h-50 flex justify-center items-center">
           
          <span className="text-2xl">🎯</span>
 

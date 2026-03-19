@@ -20,9 +20,9 @@ export default function Home() {
        <button className="rounded-2xl ml-20 md:ml-40 mt-5 bg-zinc-800 text-orange-600 p-2">Para hispanohablantes</button>
 
   
-     <div className="flex mt-10 justify-between items-center px-40">
-        <div>
-          <h1 className="text-6xl w-[50%]">English that <span className="bold italic text-orange-600 text-6xl">actually</span> makes sense to you </h1>
+     <div className="flex flex-col items-center md:flex-row md:flex md:mt-10 md:justify-between md:items-center md:px-40">
+        <div className="flex flex-col justify-center items-center md:block">
+          <h1 className="text-3xl md:text-6xl w-[50%] text-center md:text-left">English that <span className="bold italic text-orange-600 text-3xl md:text-6xl">actually</span> makes sense to you </h1>
           <p className="w-[50%] mt-5 text-justify">Lessons built for Spanish speakers — no generic content, no confusion. We explain English through your language, not around it.</p>
           <div className="flex gap-3 mt-3">
             <button className="bg-amber-600 rounded-2xl p-3 hover:cursor-pointer">Browse Lessons</button>
