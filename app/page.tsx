@@ -1,17 +1,13 @@
 import Image from "next/image";
 import Card from "./components/Card";
+import Navbar from "./components/Navbar";
+
 
 export default function Home() {
   return (
     <main className="">
-      <nav className="flex justify-between items-center px-10 mt-3">
-          <p>IMAGE WOULD GO HERE</p>
-          <ul className="flex gap-2 items-center">
-            <li className="text-sm md:text-lg">Lessons</li>
-            <li className="text-sm md:text-lg">Progress</li>
-            <button className="bg-amber-700 rounded-2xl p-3 text-sm md:text-lg">Start Learning</button>
-          </ul>
-      </nav>
+     
+
 
     {/* <div className="flex mt-10 w-5xl justify-between items-center px-40 bg-zinc-800 text-orange-600">
       <button className="rounded-2xl">Para hispanohablantes</button>
