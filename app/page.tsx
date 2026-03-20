@@ -7,9 +7,9 @@ export default function Home() {
       <nav className="flex justify-between items-center px-10 mt-3">
           <p>IMAGE WOULD GO HERE</p>
           <ul className="flex gap-2 items-center">
-            <li>Lessons</li>
-            <li>Progress</li>
-            <button className="bg-amber-700 rounded-2xl p-3">Start Learning</button>
+            <li className="text-sm md:text-lg">Lessons</li>
+            <li className="text-sm md:text-lg">Progress</li>
+            <button className="bg-amber-700 rounded-2xl p-3 text-sm md:text-lg">Start Learning</button>
           </ul>
       </nav>
 
@@ -17,7 +17,7 @@ export default function Home() {
       <button className="rounded-2xl">Para hispanohablantes</button>
     </div> */}
 
-       <button className="rounded-2xl ml-20 md:ml-40 mt-5 bg-zinc-800 text-orange-600 p-2">Para hispanohablantes</button>
+       <button className="rounded-2xl ml-20 md:ml-40 mt-5 mb-7 bg-zinc-800 text-orange-600 p-2">Para hispanohablantes</button>
 
   
      <div className="flex flex-col items-center md:flex-row md:flex md:mt-10 md:justify-between md:items-center md:px-40">
