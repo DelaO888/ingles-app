@@ -1,10 +1,17 @@
-export default function Lessons(){
+import {prisma} from "@/lib/prisma";
+
+
+export default async function Lessons(){
+
+const lessons = await prisma.lesson.findMany();
+
+
     return(
         <div>
 
             <div>
                 <h1 className="font-extrabold text-3xl md:text-6xl">All Lessons</h1>
-                <p>Lessons Available</p>
+                <p> {lessons.length} Lessons Available</p>
             </div>
 
             <div>
