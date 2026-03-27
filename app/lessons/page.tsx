@@ -1,9 +1,9 @@
 import { prisma } from "../lib/prisma";
-
+import type { Lesson } from "../lib/types/Lesson"
 
 export default async function Lessons(){
 
-const lessons = await prisma.lesson.findMany();
+const lessons: Lesson[] = await prisma.lesson.findMany();
 
 
     return(
@@ -31,7 +31,20 @@ const lessons = await prisma.lesson.findMany();
                 </div>
             </div>
 
-        
+        {lessons.map(lesson => (
+            <div className="bg-zinc-900 rounded-2xl p-5 gap-2 mt-3 md:w-100 h-50 hover:border flex flex-col justify-between hover:border-amber-500" key={lesson.id}>
+                <div className="flex justify-between">
+                    <span>⏱️</span>
+                    <div className="rounded-2xl bg-green-900 p-1 text-green-400">✅ Done</div>
+                </div>
+                <p>{lesson.title}</p>
+                <p>{lesson.description}</p>
+                <div className="flex justify-between">
+                    <span>⏱ {lesson.duration}</span>
+                    <div className="text-orange-400">Start - </div>
+                </div>
+            </div>
+        ))}
 
         </div>
     )
