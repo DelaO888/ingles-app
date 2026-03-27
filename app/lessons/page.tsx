@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { prisma } from "../lib/prisma";
 import type { Lesson } from "../lib/types/Lesson"
 
@@ -26,25 +27,33 @@ const lessons: Lesson[] = await prisma.lesson.findMany();
                     <span>Category</span>
                     <button>All</button>
                     <button>Beginner</button>
-                    <button>Intermediate</button>
+                    <button>Intermeiate</button>
                     <button>Advanced</button>
                 </div>
             </div>
 
-        {lessons.map(lesson => (
-            <div className="bg-zinc-900 rounded-2xl p-5 gap-2 mt-3 md:w-100 h-50 hover:border flex flex-col justify-between hover:border-amber-500" key={lesson.id}>
+           
+            <div className="flex justify-between gap-5 w-[80%] mx-auto mt-5">
+                {lessons.map(lesson => (
+                     <Link href={`/lesson/${lesson.id}`} key={lesson.id}>
+            <div className="bg-zinc-900 rounded-2xl hover:cursor-pointer p-5 gap-2 mt-3 md:w-100 h-50 hover:border flex flex-col justify-between hover:border-amber-500" >
                 <div className="flex justify-between">
                     <span>⏱️</span>
                     <div className="rounded-2xl bg-green-900 p-1 text-green-400">✅ Done</div>
-                </div>
+                </div> 
                 <p>{lesson.title}</p>
                 <p>{lesson.description}</p>
                 <div className="flex justify-between">
                     <span>⏱ {lesson.duration}</span>
-                    <div className="text-orange-400">Start - </div>
+                    <div className="text-orange-400">Start ➡️ </div>
                 </div>
             </div>
+                     </Link>
+           
         ))}
+            </div>
+
+        
 
         </div>
     )
