@@ -1,6 +1,7 @@
 "use client"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
+import Link from "next/link"
 
 export default function LoginPage(){
     const [email, setEmail] = useState("")
@@ -16,6 +17,7 @@ export default function LoginPage(){
                 <input type="email" className="bg-zinc-800 p-3 rounded-lg" placeholder="Email" onChange={e => setEmail(e.target.value)} />
                 <input type="password" className="bg-zinc-800 p-3 rounded-lg" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                   <button className="bg-amber-700 p-3 rounded-2xl" onClick={handleLogin}>Login</button>
+                  <Link href="/register" className="bg-amber-700 p-3 rounded-2xl" >OR Register</Link>
         </div>
     )
 
