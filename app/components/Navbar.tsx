@@ -1,8 +1,11 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
+import { useSession } from "next-auth/react";
 
 export default function Navbar(){
+
+const {data: session} = useSession();
 
 const [open, setOpen] = useState(false);
 
@@ -16,9 +19,12 @@ const [open, setOpen] = useState(false);
         </button>
 
           <ul className="hidden md:flex gap-2 items-center">
+            
             <Link className="text-sm md:text-lg" href="/lessons">Lessons</Link>
             <li className="text-sm md:text-lg">Progress</li>
-             <Link href="/login" className="bg-amber-700 rounded-2xl p-3">Log In & Start Learning</Link>
+            {session ? (
+                <span>{session.user?.email}</span>
+            ) : (<Link href="/login" className="bg-amber-700 rounded-2xl p-3">Log In & Start Learning</Link>)} 
           </ul>
 
         {open && (
