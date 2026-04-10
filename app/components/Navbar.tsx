@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar(){
 
@@ -23,8 +23,17 @@ const [open, setOpen] = useState(false);
             <Link className="text-sm md:text-lg" href="/lessons">Lessons</Link>
             <li className="text-sm md:text-lg">Progress</li>
             {session ? (
+              <div>
                 <span>{session.user?.email}</span>
-            ) : (<Link href="/login" className="bg-amber-700 rounded-2xl p-3">Log In & Start Learning</Link>)} 
+                <button onClick={() => signOut({callbackUrl: "/login"})} className="bg-amber-700 rounded-2xl p-3">Logout</button>
+                </div>
+            ) : (
+            
+              <Link href="/login" className="bg-amber-700 rounded-2xl p-3">Log In & Start Learning</Link>
+            
+            
+              
+            )} 
           </ul>
 
         {open && (
