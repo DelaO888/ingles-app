@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
+import { prisma } from "./lib/prisma";
+import LessonCard from "./components/LessonCard";
+import LessonCarousel from "./components/LessonCarousel";
 
 
-export default function Home() {
+export default async function Home() {
+
+
+const lessons = await prisma.lesson.findMany();
+
   return (
     <main className="">
      
@@ -30,6 +37,19 @@ export default function Home() {
        <Card cardTitle="Today's Lesson" cardBody="The many uses of 'get'"></Card>
 
     </div>
+
+
+<LessonCarousel lessons={lessons}></LessonCarousel>
+
+      {/* <div className="flex gap-3 mx-auto overflow-x-auto scroll-smooth snap-x snap-mandatory px-10 w-full">
+        {lessons.map(lesson => (
+          <div key={lesson.id} className="snap-start shrink-0 w-72">
+             <LessonCard  cardBody={lesson.description} cardTitle={lesson.title}></LessonCard>
+          </div>
+        
+        ))}
+      </div> */}
+
     </main>
   );
 }
